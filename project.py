@@ -4,7 +4,7 @@ ws = wb['Sheet1']
 def find_data(rows):
     """Find all data in rows of excel"""
     dic = {'central':[], 'eastern':[], 'north_east':[], 'northern':[], 'western':[], 'southern':[]}
-    for w,x,y in [('central',2,11),('eastern',12, 20),('north_east', 21, 41),('northern', 42, 60),('western', 61, 69), ('southern', 70, 83)]:
+    for w,x,y in [('central',1,11),('eastern',11, 20),('north_east', 20, 41),('northern', 41, 59),('western', 59, 68), ('southern', 68, 83)]:
         for i in ws.rows[rows][x:y]:
             dic[w].append(i.value)
     return dic
