@@ -11,7 +11,7 @@ def find_data(rows):
 
 def data_to_percent(dic_data):
     """Change dictionary of data to percent for drawing graph"""
-    for i in dic_dicta:
+    for i in dic_data:
         sum_province = sum(dic_data[i])
         for j in range(len(dic_data[i])):
             dic_data[i][j] = float('%.2f' % ((dic_data[i][j]/sum_province*100)))
