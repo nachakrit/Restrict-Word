@@ -3,11 +3,19 @@ wb = openpyxl.load_workbook('work.xlsx')
 ws = wb['Sheet1']
 def find_data(rows):
     """Find all data in rows of excel"""
-    dic = {'central':[], 'eastern':[], 'nort_east':[], 'northern':[], 'western':[], 'southern':[]}
-    for w,x,y in [('central',2,11),('eastern',12, 20),('nort_east', 21, 41),('northern', 42, 60),('western', 61, 69), ('southern', 70, 84)]:
+    dic = {'central':[], 'eastern':[], 'north_east':[], 'northern':[], 'western':[], 'southern':[]}
+    for w,x,y in [('central',2,11),('eastern',12, 20),('north_east', 21, 41),('northern', 42, 60),('western', 61, 69), ('southern', 70, 83)]:
         for i in ws.rows[rows][x:y]:
             dic[w].append(i.value)
     return dic
+
+def data_to_percent(dic_data):
+    """Change dictionary of data to percent for drawing graph"""
+    for i in dic_data:
+	sum_province = sum(dic_data[i])
+	for j in range(len(dic_data[i])):
+		dic_data[i][j] = float('%.2f' % ((dic_data[i][j]/sum_province)*100))
+    return dic_data
 
 thai = find_data(0)
 type_1 = find_data(1)
@@ -27,6 +35,9 @@ type_17 = find_data(17)
 type_18 = find_data(18)
 type_19 = find_data(19)
 type_20 = find_data(20)
+
+
+
 
 ##central = find_data(0)
 ##eastern = [i.value for i in ws.rows[0][12:20]]
