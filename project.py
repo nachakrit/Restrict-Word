@@ -17,6 +17,15 @@ def data_to_percent(dic_data):
             dic_data[i][j] = float('%.2f' % ((dic_data[i][j]/sum_province*100)))
     return dic_data
 
+def sum_region(dic_data):
+    """Return percent of sum region"""
+    for i in dic_data.keys():
+        dic_data[i] = sum(dic_data[i])
+    sum_thai = sum([dic_data[i] for i in dic_data.keys()])
+    for i in dic_data.keys():
+        dic_data[i] = float('%.2f' % ((dic_data[i]/sum_thai)*100))
+    return dic_data
+        
 thai = find_data(0)
 type_1 = find_data(1)
 type_2 = find_data(2)
