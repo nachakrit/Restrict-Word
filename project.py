@@ -1,3 +1,17 @@
+"""
+This is 'The Number of Driving Licences and Transport Personnel Licences Classified by Type' program
+which made by 'Restrict Word' for Problem Solving in Information Technology python project.
+
+This program will return you the output by this following function :
+
+find_data(num) this will return all number of num driver lincence type in dictionary.
+data_to_percent(type_num) this will return all percentage of num driver lincence type in dictionary.
+sum_region(type_num) this will return percentage of num driver licence type in each region in dictionary.
+
+Note : 1.num is number for type of driver licence in work.xlsx which mean num is only available for 1-3 and 7-20,
+         Otherwise it will return 0 in all number of information or this program may error.
+       2.DO NOT use data_to_percent(type_num) before you use sum_region(type_num), You may recive incorrect information.
+"""
 import openpyxl
 wb = openpyxl.load_workbook('work.xlsx')
 ws = wb['Sheet1']
