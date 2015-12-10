@@ -9,4 +9,4 @@ fig = {
     'layout': {'title': 'Type 14: Public  Motor  Tricycle Statistics'}
 }
 
-url = py.plot(fig, filename='Pie Chart Example')
+url = py.plot(fig, filename='Type 14')
