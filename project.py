@@ -64,26 +64,43 @@ def plot_regieon(num_type):
     'layout': {'title': title[num_type - 1]}
     }
 
-    url = py.plot(fig, filename=title[num_type - 1].split()[1])
+    url = py.plot(fig, filename=title[num_type - 1].split()[1]).
+
+def plot_6_regieon(num_type):
+    """plot a graph of all """
+    title = ['Type 1 : Private  Automobile (Temporary)', 'Type 2 : Private  Motor  Tricycle (Temporary)', 'Type 3 : Motorcycle (Temporary)','', '', '', 'Type 7 : Private  Automobile (Five Years)  ',\
+             'Type 8 : Private  Motor  Tricycle (Five Years)', 'Type 9 : Motorcycle (Five Years)', 'Type 10 : Private  Automobile (Life)', 'Type 11 : Motor  Tricycle (Life)',\
+             'Type 12 : Motorcycle (Life)', 'Type 13 : Public  Automobile', 'Type 14 : Public  Motor  Tricycle', 'Type 15 : Public  Motorcycle', 'Type 16 : International  Driving  Licence',\
+             'Type 17 : Tractor', 'Type 18 : Tractor Driving Licence', 'Type 19 : Farm Vehicle Driving Licence', 'Type 20 : Others Driving Licence']
+    py.sign_in('ommohmjr', 'nbzbfcsu6o')
+    dic = sum_region(find_data(num_type))
+    fig = {
+    'data': [{'labels': [i for i in dic.keys()],
+              'values': [dic[j] for j in dic.keys()],
+              'type': 'pie'}],
+    'layout': {'title': title[num_type - 1]}
+    }
+
+    url = py.plot(fig, filename=title[num_type - 1].split()[0] + title[num_type - 1].split()[1])
 
 thai = find_data(0)
-type_1 = find_data(1)
-type_2 = find_data(2)
-type_3 = find_data(3)
-type_7 = find_data(7)
-type_8 = find_data(8)
-type_9 = find_data(9)
-type_10 = find_data(10)
-type_11 = find_data(11)
-type_12 = find_data(12)
-type_13 = find_data(13)
-type_14 = find_data(14)
-type_15 = find_data(15)
-type_16 = find_data(16)
-type_17 = find_data(17)
-type_18 = find_data(18)
-type_19 = find_data(19)
-type_20 = find_data(20)
+##type_1 = find_data(1)
+##type_2 = find_data(2)
+##type_3 = find_data(3)
+##type_7 = find_data(7)
+##type_8 = find_data(8)
+##type_9 = find_data(9)
+##type_10 = find_data(10)
+##type_11 = find_data(11)
+##type_12 = find_data(12)
+##type_13 = find_data(13)
+##type_14 = find_data(14)
+##type_15 = find_data(15)
+##type_16 = find_data(16)
+##type_17 = find_data(17)
+##type_18 = find_data(18)
+##type_19 = find_data(19)
+##type_20 = find_data(20)
 
 ##central = find_data(0)
 ##eastern = [i.value for i in ws.rows[0][12:20]]
