@@ -25,23 +25,20 @@ def find_data(rows):
             dic[w].append(i.value)
     return dic
 
-def data_to_percent(dic):
-    """Change dictionary of data to percent for drawing graph"""
-    dic_data = dict(dic)
-    for i in dic_data:
-        sum_province = sum(dic_data[i])
-        for j in range(len(dic_data[i])):
-            dic_data[i][j] = float('%.2f' % ((dic_data[i][j]/sum_province*100)))
-    return dic_data
+##def data_to_percent(dic):
+##    """Change dictionary of data to percent for drawing graph"""
+##    dic_data = dict(dic)
+##    for i in dic_data:
+##        sum_province = sum(dic_data[i])
+##        for j in range(len(dic_data[i])):
+##            dic_data[i][j] = float('%.2f' % ((dic_data[i][j]/sum_province*100)))
+##    return dic_data
 
 def sum_region(dic):
     """Return percent of sum region"""
     dic_data = dict(dic)
     for i in dic_data.keys():
         dic_data[i] = sum(dic_data[i])
-    sum_thai = sum([dic_data[i] for i in dic_data.keys()])
-    for i in dic_data.keys():
-        dic_data[i] = float('%.2f' % ((dic_data[i]/sum_thai)*100))
     return dic_data
 
 def plot_regieon(num_type):
@@ -54,15 +51,12 @@ def plot_regieon(num_type):
     py.sign_in('thasorn', 'cmf6kajkjy')
     dic = find_data(num_type)
     max_per = max(sum_region(dic).values())
-    print(max_per)
     for i in dic.keys():
-        print(i)
         if sum_region(dic)[i] == max_per:
             max_regieon = i
-    print(max_regieon)
     fig = {
     'data': [{'labels': [i for i in thai[max_regieon]],
-              'values': [j for j in data_to_percent(dic)[max_regieon]],
+              'values': [j for j in dic[max_regieon]],
               'type': 'pie'}],
     'layout': {'title': title[num_type - 1]}
     }
